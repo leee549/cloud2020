@@ -11,6 +11,11 @@
 
     <artifactId>cloud-provider-payment-8001</artifactId>
     <dependencies>
+        <!--eureka client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!--自定义api通用包-->
         <dependency>
             <groupId>cn.lhx.springcloud</groupId>
