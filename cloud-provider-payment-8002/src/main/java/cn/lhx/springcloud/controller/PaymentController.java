@@ -25,26 +25,29 @@ public class PaymentController {
     private String serverPort;
     @Resource
     private DiscoveryClient discoveryClient;
+
     @PostMapping("/payment")
     public JsonResult<Object> create(@RequestBody Payment payment) {
         boolean result = paymentService.save(payment);
-        log.info("****插入结果{}",result);
+        log.info("****插入结果{}", result);
         if (result) {
-            return JsonResult.success(200, "插入数据库成功,serverPort"+serverPort, result);
-        }else {
-            return JsonResult.success(400,"插入数据库失败",null);
+            return JsonResult.success(200, "插入数据库成功,serverPort" + serverPort, result);
+        } else {
+            return JsonResult.success(400, "插入数据库失败", null);
         }
     }
+
     @GetMapping("/payment/{id}")
-    public JsonResult<Object> get(@PathVariable("id") Long id){
+    public JsonResult<Object> get(@PathVariable("id") Long id) {
         Payment payment = paymentService.getById(id);
-        log.info("****查询结果{}",payment);
-        if (payment!=null) {
-            return JsonResult.success(200, "查询成功,serverPort"+serverPort, payment);
-        }else {
+        log.info("****查询结果{}", payment);
+        if (payment != null) {
+            return JsonResult.success(200, "查询成功,serverPort" + serverPort, payment);
+        } else {
             return JsonResult.success(400, "查询失败没有此记录", null);
         }
     }
+
     @GetMapping("/payment/discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();
@@ -56,6 +59,11 @@ public class PaymentController {
             log.info(instance.getHost() + "\t" + instance.getUri() + "\t" + instance.getPort() + "\t" + instance.getServiceId());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
     }
 
 
