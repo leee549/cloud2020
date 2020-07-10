@@ -16,3 +16,7 @@ ribbon:
   ReadTimeout: 5000
   #建立连接所用的时间，适用于网络正常的情况下，两端l连接所用的时间
   ConnectTimeout: 5000
+logging:
+  level:
+    #feign日志监控哪个接口 什么级别
+    cn.lhx.springcloud.service.PaymentFeignService: debug
