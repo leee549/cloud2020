@@ -18,6 +18,7 @@ public class LoadBalancerImpl implements LoadBalancer {
 
     private AtomicInteger atomicInteger = new AtomicInteger(0);
 
+    //自旋+cas
     public final int getAndIncrement() {
         //当前值
         int current;
