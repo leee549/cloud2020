@@ -33,4 +33,9 @@ public class PaymentController {
         log.info("******result: {}",result);
         return result;
     }
+    //熔断
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuit(@PathVariable("id") Integer id){
+        return paymentService.PaymentCircuitBreaker(id);
+    }
 }
