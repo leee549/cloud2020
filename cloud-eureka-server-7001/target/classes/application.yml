@@ -9,5 +9,5 @@ eureka:
     #表示自己就是注册中心
     fetch-registry: false
     service-url:
-#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
