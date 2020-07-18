@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      #配置文件名称
+      name: springcloud-config-client
+      #分支名称
+      label: master
+      #读取后缀
+      profile: dev
+      #配置中心地址
+      uri: http://config-3344.com:3344
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka
