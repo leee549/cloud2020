@@ -11,6 +11,13 @@ spring:
       profile: dev
       #配置中心地址
       uri: http://config-3344.com:3344
+
+  #rabbitmq
+  rabbitmq:
+    username: guest
+    password: guest
+    port: 5672
+    host: 192.168.1.8
 eureka:
   client:
     register-with-eureka: false
