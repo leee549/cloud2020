@@ -11,6 +11,11 @@
 
     <artifactId>cloud-consumer-order-80</artifactId>
     <dependencies>
+        <!--链路追踪 spring-cloud-starter-zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--eureka client  整合了ribbon-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
