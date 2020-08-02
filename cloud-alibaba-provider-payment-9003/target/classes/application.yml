@@ -1,0 +1,41 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848    #注册中心
+  datasource:
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/cloud2020?useSSL=false&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+    #druid配置
+    druid:
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: admin
+        login-password: 1
+        allow: 127.0.0.1
+      validation-query: SELECT 1
+      testWhileIdle: true
+#mybatis-plus
+mybatis-plus:
+  global-config:
+    banner: false
+  type-aliases-package: cn.lhx.springcloud.entities   #别名
+  configuration:
+    cache-enabled: true
+  mapper-locations: classpath:mapper/**/*.xml         #mapper映射文件
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
